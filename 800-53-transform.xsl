@@ -8,9 +8,10 @@
     xsi:schemaLocation="http://scap.nist.gov/schema/sp800-53/feed/2.0 http://scap.nist.gov/schema/sp800-53/feed/2.0/sp800-53-feed_2.0.xsd"
     version="2.0">
     <xsl:output method="text" omit-xml-declaration="yes" />
-    
+ 
     <xsl:template match="c:statement">
-        <xsl:text>&#x9;</xsl:text>
+        <xsl:value-of select="c:family"/>
+	<xsl:text>&#x9;</xsl:text>
         <xsl:value-of select="c:number"/>
         <xsl:text>&#x9;&#x9;&#x9;&#x9;</xsl:text>
         <xsl:text>"</xsl:text><xsl:value-of select="c:description"/><xsl:text>"</xsl:text>
