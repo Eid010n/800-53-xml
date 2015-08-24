@@ -9,6 +9,7 @@
     version="2.0">
     <xsl:output method="text" omit-xml-declaration="yes" />
  
+    <xsl:variable name="gFamily" select="testing"></xsl:variable>
     <xsl:template match="c:statement">
         <xsl:value-of select="$gFamily"/>
 	<xsl:text>&#x9;</xsl:text>
@@ -19,7 +20,6 @@
         <xsl:apply-templates select="c:statement"/>
     </xsl:template>
     
-    <xsl:variable name="gFamily"></xsl:variable>
     <xsl:template name="control-info">
         <xsl:text>&#x9;</xsl:text>
         <xsl:value-of select="c:number"/>
