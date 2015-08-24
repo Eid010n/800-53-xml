@@ -10,7 +10,7 @@
     <xsl:output method="text" omit-xml-declaration="yes" />
  
     <xsl:template match="c:statement">
-        <xsl:value-of select="c:family"/>
+        <xsl:value-of select="$gFamily"/>
 	<xsl:text>&#x9;</xsl:text>
         <xsl:value-of select="c:number"/>
         <xsl:text>&#x9;&#x9;&#x9;&#x9;</xsl:text>
@@ -19,6 +19,7 @@
         <xsl:apply-templates select="c:statement"/>
     </xsl:template>
     
+    <xsl:variable name="gFamily"></xsl:variable>
     <xsl:template name="control-info">
         <xsl:text>&#x9;</xsl:text>
         <xsl:value-of select="c:number"/>
@@ -43,6 +44,7 @@
         <xsl:for-each select="controls:control">
             <!-- Controls -->
             <xsl:variable name="family"><xsl:value-of select="c:family"/></xsl:variable>
+            <xsl:variable name="gFamily"><xsl:value-of select="c:family"/></xsl:variable>
             <xsl:value-of select="c:family"/>
             <xsl:call-template name="control-info"/>
             <xsl:text>&#xa;</xsl:text>
