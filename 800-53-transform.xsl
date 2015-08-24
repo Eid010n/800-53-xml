@@ -43,8 +43,10 @@
         <xsl:text>FAMILY&#x9;NAME&#x9;TITLE&#x9;PRIORITY&#x9;BASELINE-IMPACT&#x9;DESCRIPTION&#x9;SUPPLEMENTAL GUIDANCE&#x9;RELATED&#xa;</xsl:text>
         <xsl:for-each select="controls:control">
             <!-- Controls -->
-            <xsl:variable name="family"><xsl:value-of select="c:family"/></xsl:variable>
-            <xsl:variable name="gFamily"><xsl:value-of select="c:family"/></xsl:variable>
+            <!-- 
+	    <xsl:variable name="family"><xsl:value-of select="c:family"/></xsl:variable>
+            -->
+	    <xsl:variable name="gFamily"><xsl:value-of select="c:family"/></xsl:variable>
             <xsl:value-of select="c:family"/>
             <xsl:call-template name="control-info"/>
             <xsl:text>&#xa;</xsl:text>
@@ -52,7 +54,10 @@
             <xsl:apply-templates select="c:statement/c:statement"/>
             <!-- Control Enhancements -->
             <xsl:for-each select="c:control-enhancements/c:control-enhancement">
-                <xsl:value-of select="$family"/>
+                <!--
+		<xsl:value-of select="$family"/>
+		-->
+                <xsl:value-of select="$gFamily"/>
                 <xsl:call-template name="control-info"/>
                 <xsl:text>&#xa;</xsl:text>
                 <xsl:apply-templates select="c:statement/c:statement"/>
