@@ -17,7 +17,9 @@
         <xsl:text>&#x9;&#x9;&#x9;&#x9;</xsl:text>
         <xsl:text>"</xsl:text><xsl:value-of select="c:description"/><xsl:text>"</xsl:text>
         <xsl:text>&#xa;</xsl:text>
-        <xsl:apply-templates select="c:statement"/>
+        <xsl:apply-templates select="c:statement">
+            <xsl:with-param name="family" select="$family" />
+        </xsl:apply-templates>
     </xsl:template>
     
     <xsl:template name="control-info">
